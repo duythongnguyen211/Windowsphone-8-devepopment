@@ -1,0 +1,58 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Personal_Notes_Management_System.CategoryLayerSettingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <phone:PhoneApplicationPage.Resources>
+        <SolidColorBrush x:Name="MyBackColor" x:Key="MyBackColor" Color="#FF27B608"/>
+    </phone:PhoneApplicationPage.Resources>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar  ForegroundColor="#FF27B608" Opacity="0">
+            <shell:ApplicationBarIconButton x:Name="btnSaveNote" IconUri="/Assets/AppBar/check.png" IsEnabled="True" Text="save" Click="btnSaveNote_Click"/>
+            <shell:ApplicationBarIconButton x:Name="btnCancel" IconUri="/Assets/AppBar/cancel.png" IsEnabled="True" Text="cancel" Click="btnCancel_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="0,17,0,28">
+            <TextBlock Text="HEHE NOTE" Style="{StaticResource PhoneTextNormalStyle}" FontSize="24" Foreground="{StaticResource MyBackColor}" FontFamily="Jokerman"/>
+            <TextBlock Text="Setting" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="48" Foreground="{StaticResource MyBackColor}" FontFamily="Jokerman"/>
+            <Rectangle Fill="{StaticResource MyBackColor}"  Height="3" Stroke="{StaticResource MyBackColor}" StrokeThickness="1"/>
+        </StackPanel>
+        <StackPanel x:Name="ContentPanel" Grid.Row="1">
+            <ListBox ItemsSource="{Binding CategoriesList}" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="70">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <CheckBox IsChecked="{Binding IsShowOnMap, Mode=TwoWay}" Height="70" Width="70" Grid.Column="0" BorderBrush="{StaticResource MyBackColor}" Checked="CheckBox_Checked"  Unchecked="CheckBox_Unchecked"/>
+                            <TextBlock Text="{Binding Name}" Height="70" Grid.Column="1" Foreground="#FF27B608" FontSize="39"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+    </Grid>
+</phone:PhoneApplicationPage>

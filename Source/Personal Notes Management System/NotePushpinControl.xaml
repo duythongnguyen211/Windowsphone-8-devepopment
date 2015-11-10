@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="Personal_Notes_Management_System.NotePushpinControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}" Height="60" Width="140" Tap="UserControl_Tap">
+    
+    <Grid x:Name="LayoutRoot">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Background="#FF27B608">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Name="pIcon" Grid.Column="0" HorizontalAlignment="Left" Height="40" Margin="0,0,0,0" VerticalAlignment="Top" Width="40" Source="/Images/CategoryIcons/Hobbies.png"/>
+            <TextBlock Name="pName" Grid.Column="1" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="40" Width="100" Foreground="White" FontSize="20"/>
+        </Grid>
+        <Polygon Grid.Column="0" Grid.Row="1" Points="0,0 20,0, 0,20" Stroke="#FF27B608" Fill="#FF27B608" />
+    </Grid>
+</UserControl>
